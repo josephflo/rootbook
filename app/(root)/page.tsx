@@ -4,13 +4,13 @@ import { sampleBooks } from "@/constants";
 
 export default function Home() {
   return (
-   <>
-    <BookOverview {...sampleBooks[0]}/>
-    {/* <BookList 
-      title='Recently Added',
-      books={sampleBooks}
-      containerClassName='mt-28'
-/> */}
-   </>
+    <>
+      <BookOverview {...sampleBooks[0]} />
+      <BookList
+        title="Recently Added"
+        books={sampleBooks}
+        containerClassName="mt-28"
+      />
+    </>
   );
 }
