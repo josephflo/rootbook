@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import React from 'react'
 
 type BookCoverVariant = 'extraSmall' | 'small' | 'medium' | 'regular' | 'wide';
@@ -31,7 +32,7 @@ const BookCover = (
       BOOK SIDE SVG
 
       <div className='absolute z-10' style={{left:"12%", width:"87.5", height:"88%"}}>
-
+        <Image src={coverImage} alt="book cover" fill className="rounded-sm object-fill" />
       </div>
     </div>
   )
