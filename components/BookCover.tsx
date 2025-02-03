@@ -32,6 +32,7 @@ const BookCover = (
       BOOK SIDE SVG
 
       <div className='absolute z-10' style={{left:"12%", width:"87.5", height:"88%"}}>
+        <h1 className='text-white'>hola</h1>
         <Image src={coverImage} alt="book cover" fill className="rounded-sm object-fill" />
       </div>
     </div>

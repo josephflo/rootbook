@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <>
       <BookOverview {...sampleBooks[0]} />
-      {/* <BookList
+      <BookList
         title="Recently Added"
         books={sampleBooks}
         containerClassName="mt-28"
-      /> */}
+      />
     </>
   );
 }
