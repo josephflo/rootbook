@@ -22,7 +22,7 @@ interface Props {
 const BookCover = (
   {
     variant = "regular",
-    coverColor = "#12B48",
+    coverColor = "#012B48",
     coverImage = "https://placehold.co/400x600.png",
     className
   } : Props
@@ -32,8 +32,8 @@ const BookCover = (
       BOOK SIDE SVG
 
       <div className='absolute z-10' style={{left:"12%", width:"87.5", height:"88%"}}>
-        <h1 className='text-white'>hola</h1>
-        <Image src={coverImage} alt="book cover" fill className="rounded-sm object-fill" />
+        <h1>BOOKS</h1>
+        <Image src={coverImage || "IMAGEN"} alt="book cover" fill className="rounded-sm object-fill"/>
       </div>
     </div>
   )
