@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react'
+import BookCoverSvg from './BookCoverSVG';
 
 type BookCoverVariant = 'extraSmall' | 'small' | 'medium' | 'regular' | 'wide';
 
@@ -13,7 +14,7 @@ const variantStyles: Record<BookCoverVariant, string> = {
 }
 
 interface Props { 
-  variant: BookCoverVariant,
+  variant?: BookCoverVariant,
   coverColor: string,
   coverImage: string,
   className?: string
@@ -29,11 +30,10 @@ const BookCover = (
 ) => {
   return (
     <div className={cn("relative transition-all duration-300", variantStyles[variant], className)}>
-      BOOK SIDE SVG
+      <BookCoverSvg coverColor={coverColor}/>
 
-      <div className='absolute z-10' style={{left:"12%", width:"87.5", height:"88%"}}>
-        <h1>BOOKS</h1>
-        <Image src={coverImage || "IMAGEN"} alt="book cover" fill className="rounded-sm object-fill"/>
+      <div className='absolute z-10' style={{left:"12%", width:"87.5%", height:"88%"}}>
+        <Image src={coverImage} alt="book cover" fill className="rounded-sm object-fill"/>
       </div>
     </div>
   )
