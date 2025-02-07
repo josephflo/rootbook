@@ -2,6 +2,8 @@ import Link from "next/link";
 import React from "react";
 import BookCover from "./BookCover";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Button } from "./ui/button";
 
 const BookCard = ({
   id,
@@ -24,6 +26,25 @@ const BookCard = ({
         <p className="book-title">{title}</p>
         <p className="book-genre">{genre}</p>
       </div>
+
+      {
+        isLoanedBook && (
+          <div>
+            <div>
+              <Image src="/icons/calendar.svg"
+                alt="calendar"
+                width={18}
+                height={18}
+                className="object-contain"
+              />
+              <p className="text-light-100">11 days left to return</p>
+            </div>
+            <Button>
+              Download receipt
+            </Button>
+          </div>
+        )
+      }
     </li>
   );
 };
