@@ -1,12 +1,13 @@
 'use client'
+
 import AuthForm from '@/components/AuthForm'
 import { signUpSchema } from '@/lib/validation'
 import React from 'react'
 
-const SignIn = () => {
+const SignUp = () => {
   return (
-    <AuthForm 
-    type="SIGN_UP"
+    <AuthForm
+    type="SIGN_IN"
     schema={signUpSchema}
     defaultValues={{
       email: "",
@@ -16,8 +17,8 @@ const SignIn = () => {
       universityCard: "",
     }}
     onSubmit={()=> {}}
-    />
+  />
   )
 }
 
-export default SignIn
+export default SignUp

@@ -1,7 +1,7 @@
 "use client"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { DefaultValues, FieldValues, SubmitHandler, useForm, UseFormReturn } from "react-hook-form"
+import { z, ZodType } from "zod"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,25 +14,31 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "./ui/input"
+
+
+interface Props<T extends FieldValues> {
+  schema: ZodType<T>;
+  defaultValues: T;
+  onSubmit: (data: T) => Promise<{ success: boolean; error?: string }>;
+  type: "SIGN_IN" | "SIGN_UP";
+}
  
-const formSchema = z.object({
-  username: z.string().min(2).max(50),
-})
+const AuthForm = <T extends FieldValues>({
+  type,
+  schema,
+  defaultValues,
+  onSubmit,
+}: Props<T>)  => {
 
-const AuthForm = ({ type, schema, defaultValues, onSubmit} : Props) => {
+  const form: UseFormReturn<T> = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: defaultValues as DefaultValues<T>,
+  });
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
-  })
+ const handleSubmit: SubmitHandler<T> = async (data: T) => {
+  console.log(data)
+ }
 
-  function handleSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
-  }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
