@@ -40,6 +40,7 @@ const AuthForm = <T extends FieldValues>({
  }
 
   return (
+    <div className="flex flex-col gap-4">
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
@@ -61,6 +62,8 @@ const AuthForm = <T extends FieldValues>({
         <Button type="submit">Submit</Button>
       </form>
     </Form>
+    </div>
+    
   )
 }
 
