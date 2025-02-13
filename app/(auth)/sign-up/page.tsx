@@ -7,7 +7,7 @@ import React from 'react'
 const SignUp = () => {
   return (
     <AuthForm
-    type="SIGN_IN"
+    type="SIGN_UP"
     schema={signUpSchema}
     defaultValues={{
       email: "",
