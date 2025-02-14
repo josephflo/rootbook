@@ -9,10 +9,7 @@ const SignIn = () => {
     schema={signUpSchema}
     defaultValues={{
       email: "",
-      password: "",
-      fullName: "",
-      universityId: 0,
-      universityCard: "",
+      password: ""
     }}
     onSubmit={()=> {}}
     />
