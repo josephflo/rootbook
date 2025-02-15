@@ -48,6 +48,7 @@ const ImageUploader = ({onFileChange}:{onFileChange: (filePath :string)=>void}) 
   const onSuccess = (res:any) => {
     setFile(res)
     onFileChange(res.filePath)
+    
     toast({
       title: "Image uploaded successfully",
       description: `${res.filePath} uploaded successfully`,
